@@ -108,6 +108,11 @@
 			function showPage(u){
 				iframe.src = u
 
+				setSize()
+
+				printerdiv.innerHTML = hider + u.substring(7,16)
+			}
+			function setSize(){
 				if(document.body.clientWidth-200>600){
 					iframe.width=document.body.clientWidth-200
 				} else {
@@ -119,8 +124,9 @@
 				} else {
 					iframe.height="1080"
 				}
-
-				printerdiv.innerHTML = hider + u.substring(7,16)
+			}
+			window.onresize = function (){
+				setSize()
 			}
 			function hidePage(u){
 				iframe.src = ""
