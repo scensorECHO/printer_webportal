@@ -108,14 +108,14 @@
 			function showPage(u){
 				iframe.src = u
 
-				if(screen.width-200>600){
-					iframe.width=screen.width-200
+				if(document.body.clientWidth-200>600){
+					iframe.width=document.body.clientWidth-200
 				} else {
 					iframe.width="1080"
 				}
 
-				if(screen.height-300>600){
-					iframe.height=screen.height-300
+				if(document.body.clientHeight-300>600){
+					iframe.height=document.body.clientHeight-300
 				} else {
 					iframe.height="1080"
 				}
