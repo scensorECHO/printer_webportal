@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<title>AUH-Printers</title>
+
+		<!-- Style section -->
+		<style>
+			body{
+				text-align: center;
+				font-family:"Verdana";
+				background-color: #004D83;
+			}
+			h1{
+				color: #FFF;
+				font-size:25px;
+			}
+			#printers{
+				margin: 0 auto;
+				width:480px;
+				border-radius: 25px;
+				color#EBF2F9:;
+				background-color:#FFF;
+				padding:5px;
+				text-align: center;
+			}
+			.printer-link{ font-size:18px; }
+			a{ color: #004D83; }
+			img{ margin-top:20px; }
+			table{
+				width: 100%;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.page{
+				outline: none;
+				margin-top:20px;
+			}
+		</style>
+	</head>
+
+	<!-- Body content section -->
+	<body>
+		<h1><img src="https://servicedesk.benteler.net/maximo/webclient/skins-20130908-1607/tivoli09/images/benteler_logo_trans.png">Printer Listing for Auburn Hills</h1>
+		<div id="printers">
+			<table>
+				<tr>
+					<th>Printer Name</th>
+					<th>Location</th>
+					<th>IP Address</th>
+				</tr>
+				<tr>
+					<td><a href="#" id="printer1" class="printer-link">P-AT-AUH-001</a></td>
+					<td>1st Floor Main<br/></td>
+					<td>10.7.1.63</td>
+				</tr>
+				<tr>
+					<td><a href="#" id="printer2" class="printer-link">P-AT-AUH-002</a></td>
+					<td>1st Floor Shipping<br/></td>
+					<td>10.7.1.56</td>
+				</tr>
+				<tr>
+					<td><a href="#" id="printer3" class="printer-link">P-AT-AUH-003</a></td>
+					<td>2nd Floor Main<br/></td>
+					<td>10.7.1.40</td>
+				</tr>
+				<tr>
+					<td><a href="#" id="printer4" class="printer-link">P-AT-AUH-004</a></td>
+					<td>1st Floor HR<br/></td>
+					<td>10.7.1.40</td>
+				</tr>
+				<tr>
+					<td><a href="#" id="printer6" class="printer-link">P-AT-AUH-006</a></td>
+					<td>2nd Floor Chairs</td>
+					<td>10.7.1.45</td>
+				</tr>
+			</table>
+		</div>
+		<div class="page">
+			<h2></h2>
+			<iframe src="//google.com" frameborder="0" width="0"></iframe>
+		</div>
+
+		<!-- Script section -->
+		<script>
+			var iframe = document.getElementsByTagName('iframe')[0]
+			var printerdiv = document.getElementById('printers')
+			var og_list = printerdiv.innerHTML
+			var hider = '<a href="#" onclick="hidePage()">Close Window</a> - '
+			function add_listeners(){
+				document.getElementById("printer1").addEventListener("click", function() {
+				showPage("http://10.7.1.63/web/guest/en/websys/webArch/authForm.cgi");
+				}, false);
+				document.getElementById("printer2").addEventListener("click", function() {
+					showPage("http://10.7.1.56/web/guest/en/websys/webArch/authForm.cgi");
+				}, false);
+				document.getElementById("printer3").addEventListener("click", function() {
+					showPage("http://10.7.1.40/web/guest/en/websys/webArch/authForm.cgi");
+				}, false);
+				document.getElementById("printer4").addEventListener("click", function() {
+					showPage("http://10.7.1.32/web/guest/en/websys/webArch/authForm.cgi");
+				}, false);
+				document.getElementById("printer6").addEventListener("click", function() {
+					showPage("http://10.7.1.45/web/guest/en/websys/webArch/authForm.cgi");
+				}, false);
+			}
+			function showPage(u){
+				iframe.src = u
+
+				if(screen.width-200>600){
+					iframe.width=screen.width-200
+				} else {
+					iframe.width="1080"
+				}
+
+				if(screen.height-300>600){
+					iframe.height=screen.height-300
+				} else {
+					iframe.height="1080"
+				}
+
+				printerdiv.innerHTML = hider + u.substring(7,16)
+			}
+			function hidePage(u){
+				iframe.src = ""
+				iframe.width = "0"
+				iframe.height = "0"
+				printerdiv.innerHTML=og_list
+				add_listeners()
+			}
+			add_listeners()
+		</script>
+	</body>
+</html>
